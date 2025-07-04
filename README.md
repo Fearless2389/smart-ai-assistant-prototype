@@ -20,7 +20,7 @@ A lightweight, voice-enabled AI chatbot powered by **DialoGPT** and built using 
 ## 📸 Demo
 
 <!-- Optional: Add a screenshot -->
-![Chat UI Preview]([https://your-image-link.png](https://github.com/user-attachments/assets/479be8aa-7d44-46a5-80a5-fb3adb66c13b))
+![Chat UI Preview](https://github.com/user-attachments/assets/479be8aa-7d44-46a5-80a5-fb3adb66c13b))
 
 
 ---
