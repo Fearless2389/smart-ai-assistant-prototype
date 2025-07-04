@@ -1,33 +1,30 @@
 
+# 🤖 Smart AI Assistant Prototype
 
+A lightweight, voice-enabled AI chatbot powered by **DialoGPT** and built using **Streamlit** and **Hugging Face Transformers**. This assistant supports natural language conversations, voice input/output, and short-term memory — all inside a clean UI.
 
-
-````markdown
-# 🤖 Smart Open AI Assistant
-
-A full-featured, modular AI assistant built with Python, Streamlit, and Hugging Face.  
-Supports chat, voice, image understanding, file-based RAG (document Q&A), and personas like coder, motivator, or study buddy.
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Open Source](https://img.shields.io/badge/Open--Source-Yes-success)
+🔗 **Live Demo**: [Try it on Hugging Face Spaces](https://huggingface.co/spaces/RuthvikReddy45/smart-ai-assistant-prototype)
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- 💬 **Chat with LLMs** using Hugging Face models (e.g. GPT-2, Mistral)
-- 🧠 **Session Memory** using Streamlit + optional JSON history
-- 📄 **RAG (Retrieval-Augmented Generation)** from uploaded PDFs/text
-- 🎙️ **Voice Input & Output** using SpeechRecognition + gTTS
-- 🖼️ **Image Analysis** via BLIP (Vision-Language model)
-- 🎭 **Personas** — switch between coder, motivator, study buddy, etc.
-- 🖥️ Clean, modular Python code — easily extendable
+- 💬 Chatbot powered by `DialoGPT-small` from Microsoft
+- 🗣️ Voice input (speech-to-text) and audio replies (text-to-speech)
+- 🧵 Short-term memory (remembers the last 3 exchanges)
+- 🖼️ Clean UI using Streamlit's chat layout
+- 🔐 `.env` support for Hugging Face tokens
 
 ---
 
-## 🛠️ Installation
+## 📸 Demo
+
+<!-- Optional: Add a screenshot -->
+![Chat UI Preview](https://your-image-link.png)
+
+---
+
+## 🚀 Getting Started
 
 ### 1. Clone the Repository
 
@@ -36,90 +33,80 @@ git clone https://github.com/Fearless2389/smart-open-ai-assistant.git
 cd smart-open-ai-assistant
 ````
 
-### 2. Create Virtual Environment
+### 2. Install Dependencies
 
-```bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
+Make sure Python 3.9+ is installed.
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+### 3. Add Your Hugging Face Token (optional but recommended)
 
-## 🧪 Run the App
+Create a `.env` file in the project root:
+
+```
+HF_TOKEN=your_huggingface_token_here
+```
+
+> You can generate a token at: [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
+
+### 4. Run the App
 
 ```bash
 streamlit run app.py
 ```
 
-Then open `http://localhost:8501` in your browser.
+---
 
+## 🧠 How It Works
 
+* Uses `DialoGPT-small` via Hugging Face Transformers
+* Manages history using `st.session_state` for multi-turn conversations
+* Allows switching between typing or speaking via sidebar radio
+* Converts responses to speech using `gTTS` and plays them with `playsound`
 
+---
 
-
-## 🔧 Folder Structure
+## 📁 Project Structure
 
 ```
-smart-open-ai-assistant/
-│
-├── app.py                 # Main Streamlit UI
-├── requirements.txt
-├── README.md
-│
+├── app.py                 # Main Streamlit app
 ├── modules/
-│   ├── chat.py
-│   ├── memory.py
-│   ├── retriever.py
-│   ├── vision.py
-│   ├── voice.py
-│   └── persona.py
-└── assets/
-    ├── sample.pdf
-    └── sample.jpg
+│   ├── chat.py            # Generates responses using DialoGPT
+│   ├── memory.py          # Save/load chat history locally (optional)
+│   └── voice.py           # Voice input/output utilities
+├── requirements.txt       # All dependencies
+├── .env                   # Hugging Face token (ignored in Git)
+└── README.md              # Project overview
 ```
 
+---
 
+## 🧩 Dependencies
 
-## 📚 Built With
+* `transformers`
+* `torch`
+* `streamlit`
+* `gTTS`
+* `SpeechRecognition`
+* `pydub`, `playsound`
+* `opencv-python-headless`, `Pillow`
+* `python-dotenv`, `tenacity`, `requests`
 
-* [Streamlit](https://streamlit.io/)
-* [Hugging Face Transformers](https://huggingface.co/)
-* [Sentence Transformers](https://www.sbert.net/)
-* [FAISS](https://github.com/facebookresearch/faiss)
-* [PyMuPDF](https://pymupdf.readthedocs.io/)
-* [gTTS + SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
+> See [`requirements.txt`](./requirements.txt) for full versions.
 
+---
 
+## 📌 To Do / Ideas
 
-## 🌐 Optional: Deploy Online
+* [ ] Add long-term memory using a database or vector store
+* [ ] Replace DialoGPT with LLaMA 3, Mistral, or OpenAI chat models
+* [ ] Add chat avatars and typing animations
+* [ ] Enhance voice support (multi-language, whisper model)
 
-### 🚀 Deploy on [Streamlit Cloud](https://share.streamlit.io/)
+---
 
-1. Push your repo to GitHub (already done ✅)
-2. Go to [https://share.streamlit.io/](https://share.streamlit.io/)
-3. Link your repo and select `app.py` as the entry point
-
-### 🧠 Deploy on [Hugging Face Spaces](https://huggingface.co/spaces)
-
-* Use `Gradio` if you want a hosted app with more control
-
-
-
-## 🧠 Future Improvements (Ideas)
-
-* Chat with multiple files (PDF, images, URLs)
-* Long-term memory using Pinecone or ChromaDB
-* Replace GPT-2 with LLaMA3, Mistral, or GPT-4 via API
-* Add authentication or upload tracking
 
 
 
